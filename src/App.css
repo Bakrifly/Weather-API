@@ -9,15 +9,18 @@
 }
 
 /* -----Back-ground----- */
-
-.site-Wrapper {
+body {
   background-color: darkcyan;
-  height: 100vh;
+
+}
+.site-Wrapper {
 }
 
 /* ------Top Banner------- */
 
 div .Top-Banner {
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   height: 50px;
@@ -30,10 +33,15 @@ div .Top-Banner {
 
 /* ----Search------ */
 
+form {
+  display: flex;
+  width: 90%;
+}
+
 form input {
   height: 30px;
-  width: 300px;
-  padding: 3%;
+  width: 27%;
+  padding: 1%;
   background-color: lightblue;
   border: 1px solid darkblue;
   outline: none;
@@ -57,28 +65,21 @@ form button:hover {
 
 /* ------ Grid------- */
 
-.grid-container  *{
-  border: 1px darkblue solid;
-margin: 0 auto;
-width: 100%;
-height: 100%;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
-border-radius: 4px;
-}
-div .grid-container {
+
+#grid-container {
   display: grid;
-  grid-template-rows:6fr 2fr;
+  grid-template-rows:6fr 2px 2fr;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-areas: "tdy tdy tdy tdy tdy tdy tdy" "h3 h6 h9 h12 h15 h18 h21";
+  grid-template-areas: "tdy tdy tdy tdy tdy tdy tdy" "line line line line line line line " "h3 h6 h9 h12 h15 h18 h21";
   grid-gap: 20px;
   width: 70%;
   height: calc(100vh - 150px);
-  margin: 3% auto;
+  margin: 100px auto 3%;
+  
 }
 
 .today-weather {grid-area: tdy;}
+.line {grid-area: line;}
 .hour3 {grid-area: h3;}
 .hour6 {grid-area: h6;}
 .hour9 {grid-area: h9;}
@@ -87,20 +88,111 @@ div .grid-container {
 .hour18 {grid-area: h18;}
 .hour21 {grid-area: h21;}
 
-.today-weather {
-  width: 400px !important;
+/* ------grid items------ */
+.line {
+  background-color: black;
+  height: 2px !important;
+  width: 100% !important;
+
 }
 
+#grid-container >div{
+  /* border: 1px darkblue solid; */
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  overflow: hidden;
+  }
+
+
+.today-weather {
+  width: 400px ;
+  border-radius: 0;
+}
+.today-weather img {
+height: 80% !important;
+}
+
+#grid-container p {
+  text-align: center;
+  margin: 5px auto;
+}
+
+#grid-container div img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
 
 
 /* ---footer--- */
 
 footer div {
-  position: absolute;
+  position: fixed;
   padding: 0 20px;
   bottom: 0%;
   height: 20px;
   width: 100%;
   background-color: darkgoldenrod;
   text-align: right;
+  font-size: 0.7em;
+  line-height: 1.3rem;
 }
+
+
+/* ---media queries--- */
+
+@media (max-width:720px) {
+  
+.Top-Banner {
+  justify-content: center;
+}
+
+form {
+  justify-content: center;
+}
+
+form input {
+  width: 70%;
+}
+
+#grid-container {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0%;
+  width: 90%;
+  margin-bottom: 50px;
+  height: auto;
+}
+
+.hp {
+  margin: 10px auto;
+}
+
+.line{
+  margin: 20px auto;
+}
+#grid-container div {
+  width: 100%;
+}
+
+#grid-container p {
+margin: 0;
+}
+
+#grid-container div:not(:first-child){
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: auto;
+}
+
+
+
+#grid-container div img:not(:first-child) {
+  width: 20%;
+  height: 50%;
+  object-fit: cover;
+  overflow: visible;
+  order: 3;
+}}
