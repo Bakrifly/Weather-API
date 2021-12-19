@@ -1,19 +1,19 @@
 import React from "react";
-import placeHolder from "../img/weather-icons/placeHolder.png";
 import clear from "../img/weather-icons/clear.svg"
-import FakeWeather from "./fakeWeatherData.json"
 
 
 function TodayWeather(props) {
+console.log(props)
+const Values = props.data[0].main
 
     return (
 <>
         <div className="today-weather">
              <img src={clear} alt="today's weather"></img>
 
-            <p id="tempTdy">Temperature: <span id="low">{props.low}</span>°c To <span id="High">{props.high}</span>°c</p>
+            <p id="tempTdy">Temperature: <span id="low">{Math.round(Values.temp_min)}</span>°c To <span id="High">{Math.round(Values.temp_max)}</span>°c</p>
 
-            <p id="HP">Humidity: <span id="humidity">{props.humidity}</span>% &nbsp; &nbsp; &nbsp; Pressure: <span id="pressure">{props.pressure}</span></p>
+            <p id="HP">Humidity: <span id="humidity">{Values.humidity}</span>% &nbsp; &nbsp; &nbsp; Pressure: <span id="pressure">{Values.pressure}</span></p>
             </div>
            
 </>)

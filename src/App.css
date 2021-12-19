@@ -144,7 +144,7 @@ footer div {
 
 /* ---media queries--- */
 
-@media (max-width:560px) {
+@media (max-width:680px) {
   
 .Top-Banner {
   justify-content: center;
