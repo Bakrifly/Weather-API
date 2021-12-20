@@ -20,17 +20,17 @@ const apikey = "e872016d2afb7c5f762a3978f38bcf1d";
     // get data function----------
 const currData = async   () => {
 const  weatherData = [await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${apikey}`)
-     .then(response =>  response.json()).then(result => {return result} ),
+     .then(response =>  response.json()).then(result => {return result} ).catch(err => "error"),
 
   await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${query}&units=metric&appid=${apikey}`)
-    .then(response =>  response.json()).then(result => {return result})];
+    .then(response =>  response.json()).then(result => {return result}).catch(err => "error" )];
 
 setCurrWeather(weatherData)
 };
 
 
 //    console.log(currWeather.weatherHR)
-if (currWeather.length > 0){
+if (currWeather.length > 0 && currWeather[0] != "error"){
     return (<>
         <header>
             <div className="Top-Banner">
@@ -67,8 +67,9 @@ if (currWeather.length > 0){
                 </form>
             </div>
        </header>
-<h1> please input a city name</h1>
+
         <div id="grid-container" >
+        <h1> please input a city name</h1>
 
 
 
