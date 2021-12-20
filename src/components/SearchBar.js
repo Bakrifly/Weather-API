@@ -13,13 +13,11 @@ const apikey = "e872016d2afb7c5f762a3978f38bcf1d";
  function SearchBar() {
     
     // use state hooks
-
     const [query, setQuery] = useState(""); 
     const [currWeather, setCurrWeather] = useState ([]);
 
    
     // get data function----------
-    // 
 const currData = async   () => {
 const  weatherData = [await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${apikey}`)
      .then(response =>  response.json()).then(result => {return result} ),
@@ -28,11 +26,7 @@ const  weatherData = [await fetch(`https://api.openweathermap.org/data/2.5/weath
     .then(response =>  response.json()).then(result => {return result})];
 
 setCurrWeather(weatherData)
-
-   };
-
-
-    // logs just to know things are working
+};
 
 
 //    console.log(currWeather.weatherHR)
